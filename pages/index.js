@@ -34,7 +34,7 @@ export default function Home() {
       } else {
         return {
           ...show,
-          quantity: show.quantity + 1
+          quantity: e.target.value
         }
       }
     })
@@ -62,9 +62,9 @@ export default function Home() {
         <div className={styles.grid}>
           
         { shows.map( show => (
-            <a className={styles.card}>
+            <a className={styles.card} key={show.id}>
               <h2>{show.title}</h2>
-              <input key={show.id} index={show.id} type='number' value={show.quantity} onChange={addTickets} />
+              <input index={show.id} type='number' value={show.quantity} onChange={addTickets} />
               <p>{show.description}</p>
             </a>
           ))}
