@@ -22,13 +22,12 @@ const tickets = [{
   description: 'small description of show',
   cost: 10,
   quantity: 0
-}
-]
+}]
 
 export default function Home() {
   const [shows, setShows] = useState(tickets);
 
-  function numTickets(e) {
+  function addTickets(e) {
     const updateShows = shows.map(show => {
       if(show.id !== parseInt(e.target.getAttribute('index'))) {
         return show;
@@ -41,17 +40,6 @@ export default function Home() {
     })
 
     setShows(updateShows);
-  }
-
-  function checkout() {
-    return <Link href={
-      { 
-        pathname: "/checkout",
-        query: { 
-          shows: JSON.stringify(shows) 
-        }
-      }} />
-
   }
 
   return (
@@ -76,13 +64,20 @@ export default function Home() {
         { shows.map( show => (
             <a className={styles.card}>
               <h2>{show.title}</h2>
-              <input key={show.id} index={show.id} type='number' value={show.quantity} onChange={numTickets} />
+              <input key={show.id} index={show.id} type='number' value={show.quantity} onChange={addTickets} />
               <p>{show.description}</p>
             </a>
           ))}
         </div>
 
-        <button onClick={checkout}>Check Out</button>
+        <Link href={ { 
+          pathname: "/checkout",
+          query: { 
+            shows: JSON.stringify(shows) 
+          }}} >
+            Checkout
+         </Link>
+         
       </main>
 
       <footer className={styles.footer}>

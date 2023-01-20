@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
-import { withRouter } from 'next/router';
+export default function Checkout() {
+  const router = useRouter();
+  const data = JSON.parse(router.query.shows);
+  const [shows, setShows] = useState(data);
 
-function Checkout({ router: { query }}) {
-  const object = JSON.parse(query.object);
+  useEffect(() => {
+    console.log(shows)
+  }, [shows]);
 
   return (
     <div>
-      about {object.title}
+      { shows.map( show => (
+            <a>
+              <h2>{show.title}</h2>
+              <p>{show.description}</p>
+            </a>
+          ))}
     </div>
   );
 }
-
-export default withRouter(Checkout);
