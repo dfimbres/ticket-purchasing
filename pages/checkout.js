@@ -32,7 +32,6 @@ export default function Checkout() {
   }
 
   function terms(e) {
-    // console.log(e.target);
     setTerm(!term);
   }
 
