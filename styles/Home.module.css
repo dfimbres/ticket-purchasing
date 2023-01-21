@@ -112,17 +112,31 @@
   margin-left: 0.5rem;
 }
 
-.delivery {
-
+.template > div > div {
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
 }
 
-.payment {
-
+.template > div:first-of-type{
+  width: 60%;
 }
 
-.checkout {
-
+.template * {
+  margin: 15px;
 }
+
+.template {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 800px;
+}
+
+.delivery p:nth-child(2) {
+  font-weight: bold;
+  font: 20px;
+} 
 
 @media (max-width: 600px) {
   .grid {

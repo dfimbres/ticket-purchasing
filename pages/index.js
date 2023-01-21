@@ -28,6 +28,8 @@ export default function Home() {
   const [shows, setShows] = useState(tickets);
 
   function addTickets(e) {
+    if(e.target.value < 0) return;
+    
     const updateShows = shows.map(show => {
       if(show.id !== parseInt(e.target.getAttribute('index'))) {
         return show;
