@@ -33,7 +33,7 @@ export default function Checkout() {
 
   function terms(e) {
     // console.log(e.target);
-    setTerm(e.target.value);
+    setTerm(!term);
   }
 
   return (
@@ -96,7 +96,7 @@ export default function Checkout() {
           <label for="terms-of-agreement">I have read terms of agreement</label>
 
           <div className='order'>
-            <button onClick={orderPlaced} disabled={!terms} >Place Order</button>
+            <button onClick={orderPlaced} disabled={!term} >Place Order</button>
           </div>
       </div>
       </div>
